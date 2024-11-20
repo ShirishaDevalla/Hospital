@@ -1,0 +1,105 @@
+.header{
+    height: 64px;
+    background-color: gray;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(104, 102, 102);
+    
+    
+}
+.card-img-top {
+    width: 80%;  
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    padding-left: 8px;      
+    height: 120px; 
+    border:60%; 
+     
+  }
+.bg-card{
+    height: 400px;
+    border-radius: 20px;
+} 
+.bg-card:hover {
+    background-color: rgb(91, 91, 91); 
+    color: white;
+   
+}
+.bg-card1{
+    height: 400px;
+    width: auto;
+    border-radius: 20px;
+
+}
+.bg-card1:hover {
+    background-color:rgb(150, 199, 233) ; 
+    color: white;
+    border-radius: 20px;
+    height: 450px;
+}
+.bg-card2{
+    height: 100px;
+    width: auto;
+    border-radius: 20px;
+
+}
+.bg-card3:hover {
+    background-color:rgb(150, 199, 233) ; 
+    color: rgb(50, 49, 49);
+    border-radius: 20px;
+    height: 400px;
+}
+.word1 {
+    text-align: start;
+    color: black; 
+    font-family: 'Arial, Helvetica, sans-serif'; 
+    font-size: 40px
+}
+
+.word2{
+    text-align: start;
+    color: rgb(23, 104, 226);
+   font-weight: bold;
+   font-size: 35px
+
+}
+.word3{
+    text-align: start;
+    color: black; 
+    font-family: 'Arial, Helvetica, sans-serif'; 
+    font-size: 25px
+
+
+}
+.pic{
+    justify-content: end;
+    align-items: end;
+    height: 400px;
+    width: auto;
+
+}
+.list{
+    justify-content: center;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   
+
+}
+.list:hover{
+    background-color:rgb(8, 137, 229) ; 
+    border-radius: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+ 
+
+}
+.card4{
+    border-radius: 10px;
+}
+.card5{
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+
+}
