@@ -37,9 +37,26 @@ const Appointment = () => {
       cell: (v) => v.MobileNumber
     },
     {
-      name: "AppointmentTime",
-      cell: (v) => v.AppointmentTime
+      name: "Surgery",
+      cell: (v) => v.Surgery
     },
+    {
+      name: "SurgeryTime",
+      cell: (v) => v.SurgeryTime
+    },
+    {
+      name: "DoctorName",
+      cell: (v) => v.DoctorName
+    },
+    {
+      name: "Status",
+      cell: (v) => v.Status
+    },
+    {
+      name: "RoomNumber",
+      cell: (v) => v.RoomNumber
+    },
+    
     {
       name: "Action",
       cell: (v, i) => (

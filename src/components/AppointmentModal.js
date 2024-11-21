@@ -65,15 +65,9 @@ const AppointmentModal = ({show, onHide, addObj,editdata}) => {
           </div>
           <div className="mr-2">
             <label>Gender</label>
-            <select
-              className="form-control p-2"
-              placeholder="Gender"
-              value={data?.Gender || ''}
-              name="Gender"
-              onChange={handleOnChange}
-            >
-              <option>Female</option>
-              <option>Male</option>
+            <select className="form-control p-2" placeholder="Gender" value={data?.Gender || ''} name="Gender" onChange={handleOnChange}>
+              <option className='mr-2'>Female</option>
+              <option className='mr-2'>Male</option>
             </select>
           </div>
           <div className="mr-2">
@@ -85,9 +79,43 @@ const AppointmentModal = ({show, onHide, addObj,editdata}) => {
             <input type="text" className="form-control p-2" placeholder="MobileNumber" value={data?.MobileNumber} name="MobileNumber" onChange={handleOnChange} />
           </div>
           <div className="mr-2">
-            <label>AppointmentTime</label>
-            <input type="datetime-local" className="form-control p-2" placeholder="AppointmentTime" value={data?.AppointmentTime} name="AppointmentTime" onChange={handleOnChange} />
-
+            <label>Surgery</label>
+            <select className="form-control p-2" placeholder="Surgery" value={data?.Surgery || ''} name="Surgery" onChange={handleOnChange}>
+              <option className='mr-2'>Cardic Bypass</option>
+              <option className='mr-2'>Knee Replacement</option>
+              <option className='mr-2'>Dental Clinic</option>
+             
+            </select>
+          </div>
+          <div className="mr-2">
+            <label>SurgeryTime</label>
+            <input type="datetime-local" className="form-control p-2" placeholder="SurgeryTime" value={data?.SurgeryTime} name="SurgeryTime" onChange={handleOnChange} />
+          </div>
+          <div className="mr-2">
+            <label>DoctorName</label>
+            <select className="form-control p-2" placeholder="DoctorName" value={data?.DoctorName || ''} name="DoctorName" onChange={handleOnChange}>
+              <option className='mr-2'>Dr. Jayanth </option>
+              <option className='mr-2'>Dr. Shirisha</option>
+              <option className='mr-2'>Dr. Pooja </option>
+              <option className='mr-2'>Dr. Devasri</option>
+              <option className='mr-2'>Dr. Radha Kumari</option>
+            </select>
+          </div>
+          <div className="mr-2">
+            <label>Status</label>
+            <select className="form-control p-2" placeholder="Status" value={data?.Status || ''} name="Status" onChange={handleOnChange}>
+              <option className='mr-2'>Recovred</option>
+              <option className='mr-2'>Not-Recover</option>
+            </select>
+          </div>
+          <div className="mr-2">
+            <label>RoomNumber</label>
+            <select className="form-control p-2" placeholder="RoomNumber" value={data?.RoomNumber || ''} name="RoomNumber" onChange={handleOnChange}>
+              <option className='row mr-2'>101</option>
+              <option className='row mr-2'>102</option>
+              <option className='row mr-2'>103</option>
+              <option className='row mr-2'>104</option>
+            </select>
           </div>
           
         </div>

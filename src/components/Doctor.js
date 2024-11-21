@@ -10,7 +10,7 @@ import Dermatologist from '../image/doctor-img5.jpg'
 
 const Doctor = () => {
   const [searchTerm, setSearchTerm]= useState('')
-  const doctors=[
+  const [doctorlist, setDoctorlist]=useState(
   { 
     id: 1, 
     name: "Dr. Jayanth Naidu", 
@@ -46,13 +46,39 @@ const Doctor = () => {
     description: "A dermatologist with 5+ years of experience in diagnosing, treating, and preventing skin, hair, and nail conditions.", 
     image: Dermatologist 
   }
-]
+)
+const [state, setState] = useState(false); 
+const [editData, setEditData] = useState(null); 
+
+
+
+const addDoctor = (newDoctor) => {
+  setDoctorlist([
+        ...doctorlist,
+        { ...newDoctor, id: doctorlist.length + 1 }
+    ]);
+};
+
+
+const editDoctor = (updatedDoctor) => {
+    const updatedList = doctorlist.map((doctor) => 
+      doctor.id === updatedDoctor.id ? updatedDoctor :doctor
+    );
+    setHospitalList(updatedList);
+};
+
+
+const deleteHospital = (id) => {
+    const filteredList = doctorlist.filter((doctor) => doctor.id !== id);
+    setHospitalList(filteredList);
+};
+
 
 
 const handleSearchChange=(e)=>{
   setSearchTerm(e.target.value)
 }
-const filteredDoctors = doctors.filter((doctor)=>
+const filteredDoctors = doctor.filter((doctor)=>
   doctor?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
   doctor?.specialization?.toLowerCase().includes(searchTerm.toLowerCase())
 )
@@ -60,6 +86,15 @@ const filteredDoctors = doctors.filter((doctor)=>
   return (
     <div> <Header/>
     <div>
+    <div className="d-flex flex-wrap justify-content-between px-5">
+                    <div><h5>Hospital List</h5></div>
+                    <div><input className="form-control" placeholder="Search..." onChange={onSearchChange} /></div>
+                    <div>
+                        <button className="btn btn-success text-white border" onClick={() => setState(true)}>
+                            Add Doctor
+                        </button>
+                    </div>
+                </div>
     <div className="container my-3">
         <input 
           type="text" 
@@ -88,6 +123,21 @@ const filteredDoctors = doctors.filter((doctor)=>
                 </div>
                 <div>
                   <p>{doctor.description}</p>
+                  <button
+                                            className="btn btn-warning text-white"
+                                            onClick={() => {
+                                                setState(true);
+                                                setEditData(doctor); 
+                                            }}
+                                        >
+                                            Edit
+                                        </button>
+                                        <button
+                                            className="btn btn-danger text-white ms-2"
+                                            onClick={() => deleteHospital(doctor.id)}
+                                        >
+                                            Delete
+                                        </button>
                 </div>
               </div>
             </div>
@@ -96,6 +146,9 @@ const filteredDoctors = doctors.filter((doctor)=>
       </div>
 
     </div>
+    {state && (<AddModal show={state} onHide={() => setState(false)} addDoctor={addDoctor} editDoctor={editDoctor} editData={editData}
+                />
+            )}
      
   
     </div>
