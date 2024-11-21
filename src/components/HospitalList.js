@@ -118,7 +118,7 @@ const HospitalList = () => {
                                             className="btn btn-danger text-white ms-2"
                                             onClick={() => deleteHospital(hospital.id)}
                                         >
-                                            Delete
+                                        Delete
                                         </button>
                                     </div>
                                 </div>
