@@ -1,68 +1,64 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 
-const HospitalAddModal = () => {
-    const [data, setData]= useState({
-        image:'',
-        name:'',
-        location:'',
-        about:''
-    })
-    useEffect(() => {
-        if (editData) {
-          setData(editData);  
-        }
-        else{
-            setData({})
-        }
-      }, [editData,show]);
-    const handleOnChange=(event)=>{
-        const{name, value}=event.target;
-       setData({
-        ...data,
-        [name]:value
-       })
+const HospitalAddModal = ({show,onHide, addobj,edit}) => {
+  
+  const [data, setData]=useState(
+    {
+      image:'',
+      name:'',
+      location:'',
+      about:''
     }
-    console.log(data)
-    const handleFileChange = (event) => {
-        setData({
-          ...data,
-          image: event.target.files[0],
-        });
-      };
-    
-      const handleSubmit = () => {
-        if (editData) {
-          editHospital(data);  
-        } else {
-          addHospital(data);  
-        }
-        onHide();  
-      };
-    
+  )
+  const submit=()=>{
+ 
+      addobj(data)
+      onHide()
+
+  }
+
+  const handleOnChange=(event)=>{
+    const{name,value}=event.target
+    setData({
+      ...data,
+      [name]:value,
+  })
+}
+useEffect(()=>{
+  if(edit){
+    setData({...edit})
+  }
+  else{
+    setData({
+
+    })
+  }
+},[edit,show])
+   
     
   return (
-    <Modal show={show}>
+    <Modal show={show} >
     <Modal.Header>
-        <Modal.Title>{editData ? 'Edit Hospital' : 'Add Hospital'}</Modal.Title>
+        <Modal.Title>{edit ? "Edit Hospital" : "Add New Hospital"}</Modal.Title>
     </Modal.Header>
     <Modal.Body>
         <div className='p-2 m-3'>
         <div className="mr-2">
             <label>image</label>
-            <input type='file' className="form-control p-2" placeholder="name"  name="image" onChange={handleFileChange}/>
+            <input type='file' className="form-control p-2" placeholder="Enter image URL"  name="image" value={data.image} onChange={handleOnChange} />
           </div>
           <div className="mr-2">
             <label>name</label>
-            <input type="text" className="form-control p-2" placeholder="name" value={data?.name} name="name" onChange={handleOnChange} />
+            <input type="text" className="form-control p-2" placeholder="name"   value={data.name}  name="name" onChange={handleOnChange} />
           </div>
           <div className="mr-2">
             <label>location</label>
-            <input type="text" className="form-control p-2" placeholder="location" value={data?.location} name="location" onChange={handleOnChange} />
+            <input type="text" className="form-control p-2" placeholder="location" name="location"  value={data.location} onChange={handleOnChange} />
           </div>
           <div className="mr-2">
             <label>about</label>
-            <textarea type="text" className="form-control p-2" placeholder="about" value={data?.LastName} name="about" onChange={handleOnChange}></textarea>
+            <textarea type="text" className="form-control p-2" placeholder="about" name="about"  value={data.about} onChange={handleOnChange}></textarea>
           </div>
         </div>
 
@@ -70,7 +66,7 @@ const HospitalAddModal = () => {
     <Modal.Footer>
             <div>
                 <button onClick={onHide} className="btn btn-primary px-4 border m-2">Cancel</button>
-                <button className="btn btn-success text-white px-4 border" onClick={handleSubmit}>Submit</button>
+                <button className="btn btn-success text-white px-4 border" onClick={submit}>Submit</button>
             </div>
 
     </Modal.Footer>

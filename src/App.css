@@ -17,7 +17,8 @@
      
   }
 .bg-card{
-    height: 400px;
+    height: 450px;
+    width: auto;
     border-radius: 20px;
 } 
 .bg-card:hover {

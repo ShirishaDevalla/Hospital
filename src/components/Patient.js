@@ -142,8 +142,8 @@ const Patient = () => {
       cell:(v)=>v.name
     }, 
     {
-      name:" age",
-      cell:(v)=>v. age
+      name:"age",
+      cell:(v)=>v.age
     }, 
     {
       name:"gender",
@@ -230,6 +230,8 @@ const Patient = () => {
 
   
 },[search,filterList])
+
+
 useEffect(()=>{
   setList(patientList )
   setFilterList(patientList )
