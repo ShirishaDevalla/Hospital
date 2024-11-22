@@ -45,16 +45,16 @@ const HospitalList = () => {
         },
     ];
 
-    // Handle search input change
-    const onChangefun = (event) => {
-        setSearch(event?.target?.value);
-    };
+    
+  const onChangefun=(event)=>{
+    setSearch(event?.target?.value)
 
-    // On component mount, set hospitals to the state
+  }
+
     useEffect(() => {
-        setAddlist(Hospital);
-        setFilterList(Hospital);
-    }, []);
+        setAddlist(Hospital)
+        setFilterList(Hospital)
+    }, [])
 
    
     const handleEdit=(hospital)=>{
