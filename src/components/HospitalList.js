@@ -7,13 +7,13 @@ import HospitalImage4 from '../hospitalimage/himagiri-hospitals-hyderabad-him04.
 import HospitalAddModal from './HospitalAddModal';
 
 const HospitalList = () => {
-    const [state, setState] = useState(false); // Control modal visibility
-    const [addlist, setAddlist] = useState([]); // List of hospitals
-    const [filterList, setFilterList] = useState([]); // Filtered hospitals based on search
-    const [search, setSearch] = useState(""); // Search query
-    const [edit, setEdit] = useState(null); // Edited hospital object
+    const [state, setState] = useState(false); 
+    const [addlist, setAddlist] = useState([]); 
+    const [filterList, setFilterList] = useState([]);
+    const [search, setSearch] = useState(""); 
+    const [edit, setEdit] = useState(null); 
 
-    // Sample hospital data
+    
     const Hospital = [
         {
             id: 1,
@@ -56,20 +56,20 @@ const HospitalList = () => {
         setFilterList(Hospital);
     }, []);
 
-    // Handle the editing of a hospital
-    const handleEdit = (hospital) => {
-        setEdit(hospital);
-        setState(true); // Open modal for editing
-    };
+   
+    const handleEdit=(hospital)=>{
+        setEdit(hospital)
+        setAddlist(hospital)
 
-    // Delete a hospital from the list
+
+    }
+   
     const deleteList = (id) => {
-        const result = addlist.filter((hospital) => hospital.id !== id);
-        setAddlist(result);
-        setFilterList(result);
+        const result = addlist.filter((hospital) => hospital.id !== id)
+        setAddlist(result)
+        setFilterList(result)
     };
 
-    // Add new hospital or update an existing hospital
     const newdataadd = (obj) => {
         if (edit) {
             const updatedata = addlist.map((item) =>
@@ -78,13 +78,13 @@ const HospitalList = () => {
             setAddlist(updatedata);
             setFilterList(updatedata);
         } else {
-            obj.id = Date.now(); // Generate unique id for new hospital
+            obj.id = Date.now(); 
             setAddlist([...addlist, obj]);
             setFilterList([...addlist, obj]);
         }
     };
 
-    // Filter hospitals based on search input
+    
     useEffect(() => {
         if (search) {
             const newres = filterList.filter((hospital) =>
@@ -93,7 +93,7 @@ const HospitalList = () => {
             );
             setAddlist(newres);
         } else {
-            setAddlist(filterList); // Reset if search is empty
+            setAddlist(filterList);
         }
     }, [search, filterList]);
 
@@ -110,13 +110,13 @@ const HospitalList = () => {
                             <input
                                 className="form-control"
                                 placeholder="Search..."
-                                onChange={onChangefun} // Handle search change
+                                onChange={onChangefun}
                             />
                         </div>
                         <div>
                             <button
                                 className="btn btn-success text-white border"
-                                onClick={() => setState(true)} // Open modal to add new hospital
+                                onClick={() => setState(true)} 
                             >
                                 Add List
                             </button>
@@ -124,7 +124,6 @@ const HospitalList = () => {
                     </div>
                 </div>
 
-                {/* Display the list of hospitals */}
                 {addlist.map((v, i) => (
                     <div key={i} className="d-flex mb-4">
                         <div className="col g-2">
@@ -145,7 +144,7 @@ const HospitalList = () => {
                                         <div>
                                             <button
                                                 className="btn btn-success px-4 border m-2"
-                                                onClick={() => handleEdit(v)} // Edit button
+                                                onClick={() => handleEdit(v)}
                                             >
                                                 Edit
                                             </button>
@@ -153,7 +152,7 @@ const HospitalList = () => {
                                         <div>
                                             <button
                                                 className="btn btn-primary px-4 border m-2"
-                                                onClick={() => deleteList(v.id)} // Delete button
+                                                onClick={() => deleteList(v.id)} 
                                             >
                                                 Delete
                                             </button>
@@ -165,13 +164,13 @@ const HospitalList = () => {
                     </div>
                 ))}
             </div>
-            {/* Modal for adding or editing a hospital */}
+            
             {state && (
                 <HospitalAddModal
                     show={state}
-                    onHide={() => setState(false)} // Close modal
-                    addobj={newdataadd} // Pass new data to parent
-                    edit={edit} // Pass edit object if editing
+                    onHide={() => setState(false)} 
+                    addobj={newdataadd} 
+                    edit={edit} 
                 />
             )}
         </div>
