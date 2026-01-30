@@ -1,0 +1,49 @@
+.doctor-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+/* Card */
+.doctor-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Large Image */
+.doctor-icon {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%; /* circular look */
+  margin-bottom: 20px;
+}
+
+/* Text */
+.doctor-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.doctor-card p {
+  font-size: 15px;
+  color: #555;
+}
+
+.doctor-profession {
+  font-size: 14px;
+  color: #1e88e5;
+  font-weight: 600;
+  margin-bottom: 6px;
+}

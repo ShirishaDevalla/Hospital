@@ -1,0 +1,65 @@
+.nav {
+  width: 100%;
+}
+
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap; 
+  position: relative;
+}
+
+
+.logo {
+  width: 140px;
+  height: auto;
+}
+
+
+.list-items {
+  display: flex;
+  gap: 60px;
+  list-style: none;
+}
+
+.list-items li {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.list-items li a {
+  text-decoration: none;
+  color: white;
+}
+
+.list-items li:hover {
+  color: #000;
+}
+
+/* .search-bar{
+  width: 200px;
+  height: 22px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  padding: 0 15px;
+  outline: none;
+  font-size: 16px;
+}
+
+
+.search-icon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+} */
+
+
